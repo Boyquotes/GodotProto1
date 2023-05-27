@@ -13,22 +13,31 @@ func _ready():
 
 func _input(event):
 	var collider = ray_cast_2d.get_collider()
-	if collider is Block:
-		var action = -1
+	if not collider is Block:
+		return
+	
+	var action = -1
+#
+	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left"):
 			action = 0
 		elif Input.is_action_just_pressed("right"):
 			action = 1
-			
-		if action < 0:
-			return
-		
-		if collider.pass_through(self, action):
-			as_move.emit()
-			score += 1
-			update_label()
-		else:
-			kill()
+	elif event is InputEventScreenTouch and event.is_pressed():
+		var pos = event.position.x
+		action = int(pos / (get_viewport_rect().size.x / 2))
+		DebugControl.update_label("touch_pos", "TouchPos: " + str(pos))
+		DebugControl.update_label("action", "Action: " + str(action))
+	
+	if action < 0:
+		return
+	
+	if collider.pass_through(self, action):
+		as_move.emit()
+		score += 1
+		update_label()
+	else:
+		kill()
 
 func update_label():
 	label.text = str(score)

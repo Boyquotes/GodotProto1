@@ -15,6 +15,10 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DebugControl="*res://debug_control.tscn"
+
 [display]
 
 window/size/viewport_width=1080
@@ -40,4 +44,5 @@ right={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.847059, 0.847059, 0.847059, 1)
