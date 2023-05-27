@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfr36g6cj5t8j"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_72bft"]
+[ext_resource type="Texture2D" uid="uid://dy4ray43t5q64" path="res://icon.svg" id="1_gaqpf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_chdns"]
+font_size = 128
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohd8p"]
+size = Vector2(116, 116)
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_72bft")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gaqpf")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -3.14159
+target_position = Vector2(0, 350)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 178.0
+grow_horizontal = 2
+text = "?"
+label_settings = SubResource("LabelSettings_chdns")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ohd8p")

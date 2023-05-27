@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://5mwdg5plmoen"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_vkkod"]
+[ext_resource type="PackedScene" uid="uid://cfr36g6cj5t8j" path="res://player.tscn" id="1_xarv4"]
+[ext_resource type="PackedScene" uid="uid://bh160henefrd5" path="res://block.tscn" id="2_lv5x5"]
+[ext_resource type="PackedScene" uid="uid://ck6baqaytw5cn" path="res://lava.tscn" id="4_volgj"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_vkkod")
+
+[node name="Player" parent="." instance=ExtResource("1_xarv4")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -512)
+position_smoothing_enabled = true
+
+[node name="block" parent="." instance=ExtResource("2_lv5x5")]
+visible = false
+position = Vector2(540, 1316)
+
+[node name="block2" parent="." instance=ExtResource("2_lv5x5")]
+visible = false
+position = Vector2(540, 1019)
+type = 0
+
+[node name="block3" parent="." instance=ExtResource("2_lv5x5")]
+visible = false
+position = Vector2(540, 747)
+type = 0
+
+[node name="block4" parent="." instance=ExtResource("2_lv5x5")]
+visible = false
+position = Vector2(540, 478)
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Lava" parent="." instance=ExtResource("4_volgj")]
+position = Vector2(0, 150)
+
+[connection signal="as_move" from="Player" to="." method="_on_player_as_move"]
