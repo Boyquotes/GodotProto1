@@ -25,9 +25,12 @@ func _ready():
 	update_block_color()
 
 func pass_through(player, block_type: int):
-	if block_type == type:
+	DebugControl.update_label("wrong_action", "Guess: %s Correct: %s" % [block_type, type])
+	if int(block_type) == int(type):
+		DebugControl.update_label("have_pass_through", "Have pass through")
 		player.global_position = marker_2d.global_position
 		return true
+	DebugControl.update_label("have_pass_through", "Have not pass through")
 	return false
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

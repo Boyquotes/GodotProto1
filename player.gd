@@ -27,11 +27,11 @@ func _input(event):
 		var pos = event.position.x
 		action = int(pos / (get_viewport_rect().size.x / 2))
 		DebugControl.update_label("touch_pos", "TouchPos: " + str(pos))
-		DebugControl.update_label("action", "Action: " + str(action))
 	
 	if action < 0:
 		return
 	
+	DebugControl.update_label("action", "Action: " + str(action))
 	if collider.pass_through(self, action):
 		as_move.emit()
 		score += 1
