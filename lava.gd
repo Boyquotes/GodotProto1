@@ -1,6 +1,7 @@
 extends Area2D
 
 var SPEED = 250
+var MAX_SPEED = 1250
 var SPEED_FACTOR = 1.5
 var can_move = false
 
@@ -13,7 +14,7 @@ func _process(delta):
 
 func _on_timer_timeout():
 	SPEED *= SPEED_FACTOR
-	SPEED = min(SPEED, 1750)
+	SPEED = min(SPEED, MAX_SPEED)
 	SPEED_FACTOR = min(SPEED_FACTOR + .1, 2.5)
 	
 	timer.wait_time *= 1.3
