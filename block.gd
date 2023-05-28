@@ -3,6 +3,7 @@ extends Area2D
 class_name Block
 
 const COLORS = [Color.BLACK, Color.WHITE]
+var PACKS = [preload("res://health_pack.tscn")]
 
 @export var type: BLOCK_TYPE = 0:
 	set(v):
@@ -23,6 +24,11 @@ func update_block_color():
 
 func _ready():
 	update_block_color()
+	if randf() < .05:
+		PACKS.shuffle()
+		var pack = PACKS[0].instantiate()
+		pack.position = marker_2d.position
+		add_child(pack)
 
 func pass_through(player, block_type: int):
 	DebugControl.update_label("wrong_action", "Guess: %s Correct: %s" % [block_type, type])

@@ -2,7 +2,7 @@ extends Area2D
 
 var SPEED = 250
 var MAX_SPEED = 1250
-var SPEED_FACTOR = 1.5
+var SPEED_FACTOR = 1.2
 var TIMER_FACTOR = 1.75
 
 var can_move = false
