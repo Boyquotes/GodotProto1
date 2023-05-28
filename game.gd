@@ -37,6 +37,6 @@ func _on_player_as_move():
 	if not lava.can_move:
 		lava.can_move = true
 	
-	lava.position.y = min(lava.position.y, player.position.y + 1024)
+	lava.position.y = min(lava.position.y, player.position.y + get_viewport_rect().size.y / 2)
 #	if not lava.on_screen:
 #		lava.position.y = player.position.y + 1024

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj5hq0qmlmmck"]
 
-[ext_resource type="Script" path="res://debug_control.gd" id="1_do8qc"]
+[ext_resource type="Script" path="res://debug_control.gd" id="1_vv0nv"]
 
 [sub_resource type="Theme" id="Theme_ovw0t"]
 default_font_size = 48
@@ -9,7 +9,8 @@ Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 5
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_do8qc")
+layer = 100
+script = ExtResource("1_vv0nv")
 
 [node name="DebugControl" type="VBoxContainer" parent="."]
 anchors_preset = 15
